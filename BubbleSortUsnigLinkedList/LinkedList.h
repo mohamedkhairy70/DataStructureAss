@@ -10,9 +10,8 @@ public:
 	Node* Head, * Tail;
 	LinkedList();
 	LinkedList operator=(LinkedList* linkedList);
-	void Add(int data);
-	void InsertAfter(int LastData, int data);
-	void InsertBefore(int LastData, int data);
+	void Add(int data, string Name);
+	void InsertAfter(int LastData, int data,string Name);
 	void Display();
 	void Delete(int data);
 	bool PrintByIndex(int index, int& data);
@@ -20,6 +19,6 @@ public:
 	LinkedList BubbleSort2();
 	void my_swap(Node* node_1, Node* node_2);
 	void my_swapByNodeOnly(Node* node_1, Node* node_2);
-	int GetLenth();
+	int GetLenthg();
 };
 

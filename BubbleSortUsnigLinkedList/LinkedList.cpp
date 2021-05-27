@@ -8,22 +8,22 @@ LinkedList::LinkedList()
 	Head = Tail = NULL;
 }
 
-LinkedList LinkedList::operator=(LinkedList* linkedList)
-{
-	Node* current = linkedList->Head;
-	LinkedList* LinkedCopy = this;
-	while (current != NULL)
-	{
-		LinkedCopy->Add(current->getData());
-		current = current->Next;
-	}
+//LinkedList LinkedList::operator=(LinkedList* linkedList)
+//{
+//	Node* current = linkedList->Head;
+//	LinkedList* LinkedCopy = this;
+//	while (current != NULL)
+//	{
+//		LinkedCopy->Add(current->getData());
+//		current = current->Next;
+//	}
+//
+//	return *this;
+//}
 
-	return *this;
-}
-
-void LinkedList::Add(int data)
+void LinkedList::Add(int data,string Name)
 {
-	Node* node = new Node(data);
+	Node* node = new Node(data, Name);
 	if (Head == NULL)
 	{
 		Head = Tail = node;
@@ -37,9 +37,9 @@ void LinkedList::Add(int data)
 	Index++;
 }
 
-void LinkedList::InsertAfter(int LastData, int data)
+void LinkedList::InsertAfter(int LastData, int data,string Name)
 {
-	Node* node = new Node(data);
+	Node* node = new Node(data, Name);
 	Node* LastNode = Search(LastData);
 	if (LastData == NULL)
 	{
@@ -62,51 +62,15 @@ void LinkedList::InsertAfter(int LastData, int data)
 	Index++;
 }
 
-void LinkedList::InsertBefore(int LastData, int data)
-{
-	Node* node = Search(data);
-	Node* LastNode = Search(LastData);
-	if (LastData == NULL)
-	{
-		cout << "Can Not Find This Node" << "\t";
-		return;
-	}
-	if (Tail == NULL)
-	{
-		Head = Tail = LastNode;
-		LastNode->Next = node;
-		node->Prev = node;
-	}
-	else
-	{
-		Node* nd = LastNode;
-		Node* nd2 = node;
-		LastNode->Next->Prev = node;
-		if (LastNode->Prev != NULL)
-		{
-			LastNode->Prev->Next = node;
-		}
-		if (nd2->Next)
-		{
-			nd2->Prev->Next = nd;
-			nd2->Next->Prev = nd;
-		}
-		else if (nd2->Prev)
-		{
-			nd2->Prev->Next = nd;
-		}
-		delete LastNode;
-	}
-	Index++;
-}
-
 void LinkedList::Display()
 {
 	Node* current = Head;
 	while (current != NULL)
 	{
 		cout << current->getData() << "\t";
+		cout << current->getName() << "\t";
 		current = current->Next;
+		cout << endl;
 	}
 }
 
@@ -281,7 +245,7 @@ Node* LinkedList::Search(int data)
 	return NULL;
 }
 
-int LinkedList::GetLenth()
+int LinkedList::GetLenthg()
 {
 	return Index;
 }

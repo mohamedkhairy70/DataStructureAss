@@ -11,16 +11,19 @@ int main()
 {
     LinkedList linkedList;
     
-    linkedList.Add(8);
-    linkedList.Add(3);
-    linkedList.Add(5);
-    linkedList.Add(2);
-    linkedList.Add(11);
+    linkedList.Add(8,"Num 8");
+    linkedList.Add(3, "Num 3");
+    linkedList.Add(5, "Num 5");
+    linkedList.Add(2, "Num 2");
+    linkedList.Add(11, "Num 11");
 
     //linkedList.my_swapByNodeOnly(linkedList.Tail->Prev, linkedList.Tail);
-
-    linkedList.BubbleSort2();
     linkedList.Display();
+    cout << endl;
+    linkedList.BubbleSort2();
+    cout << endl;
+    linkedList.Display();
+    cout << endl;
     cout << "Hello World!\n";
 }
 
