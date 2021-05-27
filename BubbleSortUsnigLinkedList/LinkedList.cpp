@@ -287,32 +287,36 @@ int LinkedList::GetLenth()
 }
 LinkedList LinkedList::BubbleSort2()
 {
-	int Max = 1, IndexCurrent = 0, loopsParent = 0, IndexNext = 0, EndLoop = 0;
+	int Max = 1, IndexCurrent = 0, loopsParent = 0, IndexNext = 0, EndLoop = 0, loopsChild = 0;
 	
-	Node* current = Tail;
-	Node* currentNow = Tail;
+	Node* current = Head;
+	Node* currentNow = Head;
 	while (EndLoop == 0)
 	{
 		IndexCurrent = 0;
-		current = Tail;
-		while (current->Prev != NULL)
+		current = Head;
+		EndLoop = 1;
+		while (current->Next != NULL)
 		{
-			EndLoop = 1;
+			
 			IndexCurrent = current->getData();
-			IndexNext = current->Prev->getData();
+			IndexNext = current->Next->getData();
 
 			if (IndexNext < IndexCurrent)
 			{
 				EndLoop = 0;
-				my_swapByNodeOnly(current->Prev, current);
-
+				my_swapByNodeOnly(current, current->Next);
+				loopsChild++;
 			}
 			else
 			{
-				current = current->Prev;
+				current = current->Next;
 			}
 		}
+		loopsParent++;
 	}
+	cout << "loopsChild : " << loopsChild << endl;
+	cout << "loopsParent : " << loopsParent << endl;
 	return *this;
 }
 
