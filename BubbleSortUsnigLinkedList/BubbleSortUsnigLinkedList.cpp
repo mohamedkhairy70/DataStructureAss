@@ -17,7 +17,7 @@ int main()
     linkedList.Add(2, "Num 2");
     linkedList.Add(11, "Num 11");
 
-    //linkedList.my_swapByNodeOnly(linkedList.Tail->Prev, linkedList.Tail);
+    //linkedList.my_swapByNodeOnly(linkedList.Head->Next, linkedList.Head->Next->Next);
     linkedList.Display();
     cout << endl;
     linkedList.BubbleSort2();

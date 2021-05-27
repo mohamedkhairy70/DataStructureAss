@@ -67,7 +67,7 @@ void LinkedList::Display()
 	Node* current = Head;
 	while (current != NULL)
 	{
-		cout << current->getData() << "\t";
+		cout <<"Id " << current->getData() << "\t";
 		cout << current->getName() << "\t";
 		current = current->Next;
 		cout << endl;
